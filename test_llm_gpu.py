@@ -21,17 +21,24 @@ print()
 # Prompt simple
 prompt = "Explique-moi ce qu'est un Large Language Model (LLM) dans le domaine de l'intelligence artificielle. Un LLM est un modèle de langue basé sur le machine learning. Réponds en 2-3 phrases simples."
 
-# Charger le modèle avec device_map="auto" pour utiliser la GPU si disponible
+# Charger automatiquement sur GPU, ou explicitement sur CPU si nécessaire
 print("="*60)
 print("CHARGEMENT DU MODÈLE")
 print("="*60)
 start_load = time.time()
 
+pipeline_kwargs = {
+    "task": "text-generation",
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "tokenizer": "Qwen/Qwen2.5-0.5B-Instruct",
+}
+if torch.cuda.is_available():
+    pipeline_kwargs["device_map"] = "auto"
+else:
+    pipeline_kwargs["device"] = -1
+
 generator = pipeline(
-    "text-generation",
-    model="Qwen/Qwen2.5-0.5B-Instruct",
-    tokenizer="Qwen/Qwen2.5-0.5B-Instruct",
-    device_map="auto"  # ← Force l'utilisation de la GPU si disponible
+    **pipeline_kwargs
 )
 
 load_time = time.time() - start_load
