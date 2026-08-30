@@ -1,3 +1,4 @@
-# MyRepo
-My first Repo
-change made in Main
+- [Ouvrir le test GPU dans Google Colab](https://colab.research.google.com/github/H2oxygene/MyRepoPublic/blob/main/test_llm_gpu_colab.ipynb)
+- [Ouvrir le test simple dans Google Colab](https://colab.research.google.com/github/H2oxygene/MyRepoPublic/blob/main/test_llm_simple_colab.ipynb)
+- [Voir le script GPU Python](https://github.com/H2oxygene/MyRepoPublic/blob/main/test_llm_gpu.py)
+- [Voir le script Python simple](https://github.com/H2oxygene/MyRepoPublic/blob/main/test_llm_simple.py)
